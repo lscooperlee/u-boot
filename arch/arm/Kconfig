@@ -1810,6 +1810,9 @@ config ARCH_ASPEED
 	select DM
 	select OF_CONTROL
 	imply CMD_DM
+    
+config ARCH_LARM
+	bool "LARM platform"
 
 config TARGET_DURIAN
 	bool "Support Phytium Durian Platform"
@@ -1984,6 +1987,8 @@ source "arch/arm/mach-imx/Kconfig"
 source "arch/arm/mach-nexell/Kconfig"
 
 source "board/armltd/total_compute/Kconfig"
+
+source "arch/arm/mach-larm/Kconfig"
 
 source "board/bosch/shc/Kconfig"
 source "board/bosch/guardian/Kconfig"
