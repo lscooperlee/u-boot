@@ -1985,6 +1985,8 @@ source "arch/arm/mach-nexell/Kconfig"
 
 source "board/armltd/total_compute/Kconfig"
 
+source "arch/arm/mach-larm/Kconfig"
+
 source "board/bosch/shc/Kconfig"
 source "board/bosch/guardian/Kconfig"
 source "board/CarMediaLab/flea3/Kconfig"
