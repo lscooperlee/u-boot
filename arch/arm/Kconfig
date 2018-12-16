@@ -1810,6 +1810,9 @@ config ARCH_ASPEED
 	select DM
 	select OF_CONTROL
 	imply CMD_DM
+    
+config ARCH_LARM
+	bool "LARM platform"
 
 config TARGET_DURIAN
 	bool "Support Phytium Durian Platform"
