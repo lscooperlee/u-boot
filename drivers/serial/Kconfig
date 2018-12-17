@@ -884,6 +884,11 @@ config MT7620_SERIAL
 	  The UART driver for MediaTek MT7620 and earlier SoCs is *NOT*
 	  compatible with the ns16550a UART.
 
+config LARM_ONE_SERIAL
+	bool "Larm one serial support"
+	depends on !DM_SERIAL
+	select TARGET_LARM_ONE_BOARD
+
 config MPC8XX_CONS
 	bool "Console driver for MPC8XX"
 	depends on MPC8xx
