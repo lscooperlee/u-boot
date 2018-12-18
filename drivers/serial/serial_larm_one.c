@@ -10,6 +10,8 @@
 #define UFCON4	((volatile unsigned int *)(0xFF000010))
 
 static void larm_putc(const char c) {
+	if (c == '\n')
+        *UFCON0='\r';
     *UFCON0=c;
 }
 
@@ -42,7 +44,7 @@ static int larm_one_serial_getc(void)
 
 static int larm_one_serial_tstc(void)
 {
-    return 1;
+    return *UFCON2;
 }
 
 static void larm_one_serial_setbrg(void)
