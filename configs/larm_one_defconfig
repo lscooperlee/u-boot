@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# U-Boot 2019.01-rc1 Configuration
+# U-Boot 2019.01-rc2 Configuration
 #
 CONFIG_CREATE_ARCH_SYMLINK=y
 # CONFIG_ARC is not set
@@ -308,7 +308,7 @@ CONFIG_CMD_CONSOLE=y
 #
 CONFIG_CMD_BOOTD=y
 CONFIG_CMD_BOOTM=y
-# CONFIG_CMD_BOOTZ is not set
+CONFIG_CMD_BOOTZ=y
 # CONFIG_CMD_BOOTMENU is not set
 # CONFIG_CMD_DTIMG is not set
 CONFIG_CMD_ELF=y
