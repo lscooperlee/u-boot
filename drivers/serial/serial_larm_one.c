@@ -3,26 +3,17 @@
 #include <asm/io.h>
 #include <serial.h>
 
-#define UFCON0	((volatile unsigned int *)(0xFF000000))
-#define UFCON1	((volatile unsigned int *)(0xFF000004))
-#define UFCON2	((volatile unsigned int *)(0xFF000008))
-#define UFCON3	((volatile unsigned int *)(0xFF00000c))
-#define UFCON4	((volatile unsigned int *)(0xFF000010))
+#include <asm/mach-larm/larm_one.h>
 
 static void larm_putc(const char c) {
 	if (c == '\n')
-        *UFCON0='\r';
-    *UFCON0=c;
-}
-
-static void larm_puts(const char *s) {
-    while(*s)
-        larm_putc(*s++);
+        larm_write32('\r', LARM_UART_REG_RTX);
+    larm_write32(c, LARM_UART_REG_RTX);
 }
 
 static char larm_getc(void) {
-    while(*UFCON2==0);
-    return *UFCON0;      
+    while(larm_read32(LARM_UART_REG_RX_READY)==0);
+    return (char)larm_read32(LARM_UART_REG_RTX);
 }
 
 DECLARE_GLOBAL_DATA_PTR;
@@ -44,7 +35,7 @@ static int larm_one_serial_getc(void)
 
 static int larm_one_serial_tstc(void)
 {
-    return *UFCON2;
+    return larm_read32(LARM_UART_REG_RX_READY);
 }
 
 static void larm_one_serial_setbrg(void)
